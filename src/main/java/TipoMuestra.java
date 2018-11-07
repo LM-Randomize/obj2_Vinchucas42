@@ -1,0 +1,10 @@
+package main.java;
+
+public enum TipoMuestra {
+	INDEFINIDO
+	,VINCHUCA
+	,CHINCHEFOLIADA
+	,PHTIACHINCHE
+	,IMAGENPOCOCLARA
+	,NINGUNA
+}
