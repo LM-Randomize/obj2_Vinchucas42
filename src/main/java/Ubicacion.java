@@ -30,7 +30,7 @@ public class Ubicacion {
 	
 	public double distanciaCon(Ubicacion ubicacion) {
 		//definir
-		return 0;
+		return (double)0;
 	}
 	
 }
