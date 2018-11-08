@@ -1,6 +1,6 @@
 package main.java;
 
-public class NivelVerificacionAlto implements INivelVerificacion {
+public class NivelVerificacionAlto extends NivelVerificacion {
 
 	@Override
 	public String getNivel() {
@@ -9,8 +9,7 @@ public class NivelVerificacionAlto implements INivelVerificacion {
 	
 	@Override
 	public void verificar(Muestra muestra, Usuario usuario, TipoMuestra tipo) {
-		// TODO Auto-generated method stub
-
+		//throw new Exception("No toma mas Verificaciones.");
 	}
 
 }

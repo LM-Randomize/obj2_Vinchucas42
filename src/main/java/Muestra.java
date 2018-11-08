@@ -1,13 +1,15 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 
 public class Muestra {
 	
 	private String urlFoto;
 	private Ubicacion ubicacion;
 	private Usuario propietario;
-	private INivelVerificacion nivelVerificacion;
+	private NivelVerificacion nivelVerificacion;
 	private ArrayList<Verificacion> verificaciones;
 	private TipoMuestra tipoMuestra;
 	
@@ -18,6 +20,8 @@ public class Muestra {
 		this.nivelVerificacion = new NivelVerificacionBajo();
 		this.verificaciones = new ArrayList<Verificacion>();
 		this.tipoMuestra = tipoMuestra;
+		propietario.agregarMuestra(this);
+		this.fechaCaptura = new Date();
 	}
 	
 	public String getFoto() {
@@ -33,16 +37,48 @@ public class Muestra {
 		return this.ubicacion;
 	}
 	
-	public void verificar(Usuario usuario, TipoMuestra tipoMuestra) {
-		//DEFINIR
-	}
-	
-	public String nivelDeVerificacion() {
+	public String getNivelDeVerificacion() {
 		return this.nivelVerificacion.getNivel();
 	}
-	
-	public TipoMuestra tipoDeMuestra() {
+	public void setNivelDeVerificacion(NivelVerificacion nivel) {
+		this.nivelVerificacion = nivel;
+	}
+
+	public TipoMuestra getTipoDeMuestra() {
 		return this.tipoMuestra;
+	}
+	public void setTipoDeMuestra(TipoMuestra tipo) {
+		this.tipoMuestra = tipo;
+	}
+	
+	public Date getFechaCaptura() {
+		return fechaCaptura;
+	}
+
+	public void setFechaCaptura(Date fechaCaptura) {
+		this.fechaCaptura = fechaCaptura;
+	}
+
+	private Date fechaCaptura;
+
+	
+
+	public void agragarVerificacion(Verificacion ver) {
+		this.verificaciones.add(ver);
+	}
+	
+	public void verificar(Usuario usuario, TipoMuestra tipoMuestra) {
+		this.nivelVerificacion.verificar(this, usuario, tipoMuestra);
+	}
+	
+	public int getCantVerificacionesDeTipo(TipoMuestra tipo) {
+		int cant = 0;
+		for (Verificacion v : verificaciones) {
+			if (v.getTipoMuestra() == tipo) {
+				cant++;
+			} 
+		}
+		return cant;
 	}
 	
 	

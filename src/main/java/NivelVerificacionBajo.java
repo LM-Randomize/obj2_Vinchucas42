@@ -1,6 +1,6 @@
 package main.java;
 
-public class NivelVerificacionBajo implements INivelVerificacion{
+public class NivelVerificacionBajo extends NivelVerificacion{
 
 	@Override
 	public String getNivel() {
@@ -9,7 +9,11 @@ public class NivelVerificacionBajo implements INivelVerificacion{
 	
 	@Override
 	public void verificar(Muestra muestra, Usuario usuario, TipoMuestra tipo) {
-		// TODO Auto-generated method stub
-
+		if (usuario.getNivel() == NivelUsuario.EXPERTO) {
+			this.guardarVerificacion(muestra, usuario, tipo, new NivelVerificacionAlto());
+		} 
+		else if (muestra.getCantVerificacionesDeTipo(tipo) >= 1) {
+			this.guardarVerificacion(muestra, usuario, tipo, new NivelVerificacionMedio());
+		}
 	}
 }

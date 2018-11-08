@@ -12,4 +12,21 @@ public class Verificacion {
 		this.tipoMuestra = tipoMuestra;
 	}
 	
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public TipoMuestra getTipoMuestra() {
+		return tipoMuestra;
+	}
+
+	public void setTipoMuestra(TipoMuestra tipoMuestra) {
+		this.tipoMuestra = tipoMuestra;
+	}
+	
 }
