@@ -3,6 +3,7 @@ package main.java;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 public class Muestra {
 	
 	private String urlFoto;
@@ -71,7 +72,12 @@ public class Muestra {
 		this.verificaciones.add(ver);
 	}
 	
-	//Delega al NivelVerificacion actual la logica de registro y evolucion del estado de los objetos involucrados.
+	/**
+	 * Delega al NivelVerificacion actual la logica de registro y evolucion del estado de los objetos involucrados.
+	 * @param usuario
+	 * @param tipoMuestra
+	 * @throws UsuarioRepetidoException 
+	 */
 	public void verificar(Usuario usuario, TipoMuestra tipoMuestra) {
 		if (!this.yaVerifico(usuario)) {
 			this.nivelVerificacion.verificar(this, usuario, tipoMuestra);
