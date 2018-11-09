@@ -28,6 +28,7 @@ public class Ubicacion {
 		this.longitud = longitud;
 	}
 	
+	//Retorna la distancia entre las coordenadas de la ubicacion actual y la que recibe por parametro.
 	public double distanciaCon(Ubicacion ubicacion) {
 		//definir
 		return (double)0;
