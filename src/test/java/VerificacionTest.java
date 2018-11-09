@@ -41,7 +41,7 @@ public class VerificacionTest {
 	@SuppressWarnings("deprecation")
 	@Test
 	public void testVerificacion_setFecha() {
-		Date newDate = new Date(2018, 11, 24);
+		Date newDate = new Date(2018, 10, 24);
 		this.verificacion1.setFecha(newDate);
 		assertEquals(newDate,this.verificacion1.getFecha());
 	}
