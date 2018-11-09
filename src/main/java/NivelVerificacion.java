@@ -8,12 +8,15 @@ public abstract class NivelVerificacion {
 	//	Actualizar el TipoMuestra
 	//	Actualizar el NivelVerificacion
 	//	Asociar la nueva Verificaion con el Usuario y la Muestra
-	protected void guardarVerificacion(Muestra muestra, Usuario usuario, TipoMuestra tipo, NivelVerificacion proxNivel) {
-		muestra.setTipoDeMuestra(tipo);
-		muestra.setNivelDeVerificacion(proxNivel);
+	protected void guardarVerificacion(Muestra muestra, Usuario usuario, TipoMuestra tipo) {
 		Verificacion ver = new Verificacion(tipo,muestra,usuario);
 		muestra.agragarVerificacion(ver);
 		usuario.agregarVerificacion(ver);
+	}
+	protected void guardarVerificacion(Muestra muestra, Usuario usuario, TipoMuestra tipo, NivelVerificacion proxNivel) {
+		muestra.setTipoDeMuestra(tipo);
+		muestra.setNivelDeVerificacion(proxNivel);
+		this.guardarVerificacion(muestra, usuario, tipo);
 	}
 	
 	public abstract String getNivel();

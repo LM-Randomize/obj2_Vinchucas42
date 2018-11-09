@@ -18,23 +18,13 @@ public class Usuario {
 	public String getAlias() {
 		return this.alias;
 	}
-	
-	//Calcula la diferencia en dias de las fechas que recibe.
-	//Habria que pasarlo a ona clase aparte.
-	public long diferenciaDias(Date startDate, Date endDate) {
-		long startTime = startDate.getTime();
-		long endTime = endDate.getTime();
-		long diffTime = endTime - startTime;
-		long diffDays = diffTime / (1000 * 60 * 60 * 24);
-		return diffDays;
-	}
 
 	//Retorna la cantidad de Muestras que el usuario cardo en los ultimos 30 dias.
 	public int muestrasDelMes() {
 		int cant = 0;
 		Date hoy = new Date();
 		for (Muestra m : this.muestrasPropias) {
-			if (diferenciaDias(m.getFechaCaptura(), hoy) <= 30) {
+			if (UTILS.diferenciaDias(m.getFechaCaptura(), hoy) <= 30) {
 				cant++;
 			}
 		}
@@ -45,7 +35,7 @@ public class Usuario {
 		int cant = 0;
 		Date hoy = new Date();
 		for (Verificacion v : this.verificaciones) {
-			if (diferenciaDias(v.getFecha(), hoy) <= 30) {
+			if (UTILS.diferenciaDias(v.getFecha(), hoy) <= 30) {
 				cant++;
 			}
 		}

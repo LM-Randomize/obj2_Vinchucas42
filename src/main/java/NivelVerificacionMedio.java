@@ -13,6 +13,9 @@ public class NivelVerificacionMedio extends NivelVerificacion {
 				|| muestra.getCantVerificacionesDeTipo(tipo) >= 2) {
 			this.guardarVerificacion(muestra, usuario, tipo, new NivelVerificacionAlto());
 		}
+		else {
+			this.guardarVerificacion(muestra, usuario, tipo);
+		}
 	}
 
 }

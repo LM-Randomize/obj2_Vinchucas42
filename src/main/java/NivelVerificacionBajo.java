@@ -15,5 +15,8 @@ public class NivelVerificacionBajo extends NivelVerificacion{
 		else if (muestra.getCantVerificacionesDeTipo(tipo) >= 1) {
 			this.guardarVerificacion(muestra, usuario, tipo, new NivelVerificacionMedio());
 		}
+		else {
+			this.guardarVerificacion(muestra, usuario, tipo);
+		}
 	}
 }

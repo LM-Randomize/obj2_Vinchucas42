@@ -1,7 +1,6 @@
 package main.java;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 
 public class Muestra {
@@ -66,7 +65,7 @@ public class Muestra {
 	
 	//Delega al NivelVerificacion actual la logica de registro y evolucion del estado de los objetos involucrados.
 	public void verificar(Usuario usuario, TipoMuestra tipoMuestra) {
-		if (this.getCantVerificacionesDeUsuario(usuario) == 0) {
+		if (!this.yaVerifico(usuario)) {
 			this.nivelVerificacion.verificar(this, usuario, tipoMuestra);
 		}
 	}
@@ -82,10 +81,10 @@ public class Muestra {
 		return cant;
 	}
 	
-	//Retorna la cantidad de verificaciones del Usuario indicado.
-	public int getCantVerificacionesDeUsuario(Usuario usu) {
-		return (int) this.verificaciones.stream()
-		    	.filter(v -> v.getUsuario() == usu).count();
+	//Retorna Si el usuario Ya Verifico la muestra.
+	private boolean yaVerifico(Usuario usu) {
+		return this.verificaciones.stream()
+		    	.anyMatch(v -> v.getUsuario() == usu);
 	}
 	
 }

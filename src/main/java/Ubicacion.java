@@ -36,7 +36,7 @@ public class Ubicacion {
 		double lng2 = ubicacion.getLongitud();
 		
         //double radioTierra = 3958.75;//en millas  
-        double radioTierra = 6371;//en kilómetros  
+        double radioTierra = 6371;//en km  
         double dLat = Math.toRadians(lat2 - lat1);  
         double dLng = Math.toRadians(lng2 - lng1);  
         double sindLat = Math.sin(dLat / 2);  
