@@ -21,7 +21,7 @@ public class UbicacionTest {
 	
 	@Test
 	public void testUbicacion_distanciaCon() {
-		assertEquals((double)5, this.ubicacion1.distanciaCon(ubicacion2), 1);
+		assertEquals((double)555, this.ubicacion1.distanciaCon(ubicacion2), 1);
 	}
 	
 }
