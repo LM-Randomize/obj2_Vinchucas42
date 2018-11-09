@@ -66,13 +66,15 @@ public class Muestra {
 	
 	//Delega al NivelVerificacion actual la logica de registro y evolucion del estado de los objetos involucrados.
 	public void verificar(Usuario usuario, TipoMuestra tipoMuestra) {
-		this.nivelVerificacion.verificar(this, usuario, tipoMuestra);
+		if (this.getCantVerificacionesDeUsuario(usuario) == 0) {
+			this.nivelVerificacion.verificar(this, usuario, tipoMuestra);
+		}
 	}
 	
 	//Retorna la cantidad de verificaciones del TipoMuestra indicado.
 	public int getCantVerificacionesDeTipo(TipoMuestra tipo) {
 		int cant = 0;
-		for (Verificacion v : verificaciones) {
+		for (Verificacion v : this.verificaciones) {
 			if (v.getTipoMuestra() == tipo) {
 				cant++;
 			} 
@@ -80,5 +82,10 @@ public class Muestra {
 		return cant;
 	}
 	
+	//Retorna la cantidad de verificaciones del Usuario indicado.
+	public int getCantVerificacionesDeUsuario(Usuario usu) {
+		return (int) this.verificaciones.stream()
+		    	.filter(v -> v.getUsuario() == usu).count();
+	}
 	
 }

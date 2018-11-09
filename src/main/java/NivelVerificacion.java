@@ -11,7 +11,7 @@ public abstract class NivelVerificacion {
 	protected void guardarVerificacion(Muestra muestra, Usuario usuario, TipoMuestra tipo, NivelVerificacion proxNivel) {
 		muestra.setTipoDeMuestra(tipo);
 		muestra.setNivelDeVerificacion(proxNivel);
-		Verificacion ver = new Verificacion(tipo);
+		Verificacion ver = new Verificacion(tipo,muestra,usuario);
 		muestra.agragarVerificacion(ver);
 		usuario.agregarVerificacion(ver);
 	}
