@@ -11,14 +11,20 @@ import main.java.TipoOrganizacion;
 import main.java.Ubicacion;
 
 public class OrganizacionTest {
+	
 	private Organizacion organizacion;
 	private Ubicacion ubicacion;
+	
 	@Before
 	public void setUp() {
 		this.ubicacion = mock(Ubicacion.class);
-		this.organizacion = new Organizacion(ubicacion, TipoOrganizacion.ASISTENCIA, 25);
+		this.organizacion = new Organizacion("asist",ubicacion, TipoOrganizacion.ASISTENCIA, 25);
 	}
 
+	@Test
+	public void testOrganizacion_getNombre() {
+		assertEquals("asist", this.organizacion.getNombre());
+	}
 	@Test
 	public void testOrganizacion_getUbicacion() {
 		assertEquals(this.ubicacion, this.organizacion.getUbicacion());

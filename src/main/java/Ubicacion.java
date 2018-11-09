@@ -1,5 +1,8 @@
 package main.java;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 public class Ubicacion {
 	
 	private double latitud;
@@ -47,6 +50,13 @@ public class Ubicacion {
         double distancia = radioTierra * va2;  
    
         return distancia;  
+	}
+	
+	//Retorna las ubicaciones que se encuentran a menos de x Kms
+	public ArrayList<Ubicacion> ubicacionesCercanas(ArrayList<Ubicacion> ubicaciones, double dist) {
+		return (ArrayList<Ubicacion>)ubicaciones.stream()
+				.filter(u -> this.distanciaCon(u) <= dist)
+				.collect(Collectors.toList());
 	}
 	
 }

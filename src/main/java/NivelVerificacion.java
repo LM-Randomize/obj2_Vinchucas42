@@ -1,6 +1,6 @@
 package main.java;
 
-public abstract class NivelVerificacion {
+public abstract class NivelVerificacion implements INivelVerificacion{
 
 	public NivelVerificacion() {}
 	
@@ -13,7 +13,7 @@ public abstract class NivelVerificacion {
 		muestra.agragarVerificacion(ver);
 		usuario.agregarVerificacion(ver);
 	}
-	protected void guardarVerificacion(Muestra muestra, Usuario usuario, TipoMuestra tipo, NivelVerificacion proxNivel) {
+	protected void guardarVerificacion(Muestra muestra, Usuario usuario, TipoMuestra tipo, INivelVerificacion proxNivel) {
 		muestra.setTipoDeMuestra(tipo);
 		muestra.setNivelDeVerificacion(proxNivel);
 		this.guardarVerificacion(muestra, usuario, tipo);

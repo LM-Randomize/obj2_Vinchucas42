@@ -30,7 +30,7 @@ public class NivelVerificacionBajoTest {
 	@Test
 	public void testNivelVerificacionBajo_verificar() {
 		Usuario usuario = mock(Usuario.class);
-		Muestra muestra= mock(Muestra.class);
+		Muestra muestra = mock(Muestra.class);
 		UsuarioEspecialista usuarioEspecialista = new UsuarioEspecialista("Jorge");
 		when(usuario.getNivel()).thenReturn(NivelUsuario.BASICO);
 		this.nivelVerificacion.verificar(muestra, usuario, TipoMuestra.INDEFINIDO);
