@@ -2,6 +2,7 @@ package main.java;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class Muestra {
@@ -10,7 +11,7 @@ public class Muestra {
 	private Ubicacion ubicacion;
 	private Usuario propietario;
 	private INivelVerificacion nivelVerificacion;
-	private ArrayList<Verificacion> verificaciones;
+	private List<Verificacion> verificaciones;
 	private TipoMuestra tipoMuestra;
 	private Date fechaCaptura;
 	
@@ -34,7 +35,8 @@ public class Muestra {
 		return this.urlFoto;
 	}
 	
-	// Retorna el alias de la persona que cargo la muestra
+	/* Retorna el alias de la persona que cargo la muestra
+	 * */
 	public String getPropietario() {
 		return this.propietario.getAlias();
 	}
@@ -64,7 +66,7 @@ public class Muestra {
 		this.fechaCaptura = fechaCaptura;
 	}
 
-	public ArrayList<Verificacion> getVerificaciones() {
+	public List<Verificacion> getVerificaciones() {
 		return verificaciones;
 	}
 	
@@ -84,19 +86,15 @@ public class Muestra {
 		}
 	}
 	
-	//Retorna la cantidad de verificaciones del TipoMuestra indicado.
+	/* Retorna la cantidad de verificaciones del TipoMuestra indicado.
+	 * */
 	public int getCantVerificacionesDeTipo(TipoMuestra tipo) {
-		//int cant = 0;
-		//for (Verificacion v : this.verificaciones) {
-		//	if (v.getTipoMuestra() == tipo) {
-		//		cant++;
-		//	} 
-		//}
 		return (int)this.verificaciones.stream()
 				.filter(v -> v.getTipoMuestra() == tipo).count();
 	}
 	
-	//Retorna Si el usuario Ya Verifico la muestra.
+	/* Retorna Si el usuario Ya Verifico la muestra.
+	 * */
 	private boolean yaVerifico(Usuario usu) {
 		return this.verificaciones.stream()
 		    	.anyMatch(v -> v.getUsuario() == usu);

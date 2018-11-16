@@ -3,6 +3,7 @@ package test.java;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -45,7 +46,7 @@ public class SistemaWebTest {
 
 	@Test
 	public void testSistemaWeb_getMuestras() {
-		ArrayList<Muestra> muestrasResp = this.sistema.getMuestras();
+		List<Muestra> muestrasResp = this.sistema.getMuestras();
 		assertEquals(3,muestrasResp.size());
 		assertTrue(muestrasResp.contains(this.muestra1));
 		assertTrue(muestrasResp.contains(this.muestra2));
@@ -54,7 +55,7 @@ public class SistemaWebTest {
 	
 	@Test
 	public void testSistemaWeb_getUsuarios() {
-		ArrayList<Usuario> usuariosResp = this.sistema.getUsuarios();
+		List<Usuario> usuariosResp = this.sistema.getUsuarios();
 		assertEquals(3,usuariosResp.size());
 		assertTrue(usuariosResp.stream().map(u -> u.getAlias())
 				.collect(Collectors.toList()).contains("usu1"));
@@ -66,7 +67,7 @@ public class SistemaWebTest {
 	
 	@Test
 	public void testSistemaWeb_getOrganizaciones() {
-		ArrayList<Organizacion> org = this.sistema.getOrganizaciones();
+		List<Organizacion> org = this.sistema.getOrganizaciones();
 		assertEquals(1,org.size());
 		assertTrue(org.contains(this.org1));
 	}
@@ -91,7 +92,7 @@ public class SistemaWebTest {
 	
 	@Test
 	public void testSistemaWeb_muestrasCercanas() {
-		ArrayList<Muestra> muestrasCercanas = this.sistema.muestrasCercanas(this.muestra1, 700);
+		List<Muestra> muestrasCercanas = this.sistema.muestrasCercanas(this.muestra1, 700);
 		assertEquals(1,muestrasCercanas.size());
 		//assertTrue(muestrasCercanas.contains(this.muestra2));
 	}

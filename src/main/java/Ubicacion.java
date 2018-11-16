@@ -1,6 +1,7 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Ubicacion {
@@ -31,7 +32,9 @@ public class Ubicacion {
 		this.longitud = longitud;
 	}
 	
-	//Retorna la distancia entre las coordenadas de la ubicacion actual y la que recibe por parametro.
+	/* Retorna la distancia entre las coordenadas de la ubicacion actual 
+	 * y la que recibe por parametro.
+	 * */
 	public double distanciaCon(Ubicacion ubicacion) {
 		double lat1 = this.latitud;
 		double lng1 = this.longitud;
@@ -52,8 +55,9 @@ public class Ubicacion {
         return distancia;  
 	}
 	
-	//Retorna las ubicaciones que se encuentran a menos de x Kms
-	public ArrayList<Ubicacion> ubicacionesCercanas(ArrayList<Ubicacion> ubicaciones, double dist) {
+	/* Retorna las ubicaciones que se encuentran a menos de x Kms
+	 * */
+	public List<Ubicacion> ubicacionesCercanas(List<Ubicacion> ubicaciones, double dist) {
 		return (ArrayList<Ubicacion>)ubicaciones.stream()
 				.filter(u -> this.distanciaCon(u) <= dist)
 				.collect(Collectors.toList());

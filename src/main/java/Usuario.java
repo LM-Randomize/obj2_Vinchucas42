@@ -2,12 +2,13 @@ package main.java;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Usuario {
 	
 	protected String alias;
-	protected ArrayList<Verificacion> verificaciones;
-	protected ArrayList<Muestra> muestrasPropias;
+	protected List<Verificacion> verificaciones;
+	protected List<Muestra> muestrasPropias;
 
 	public Usuario(String alias) {
 		this.alias = alias;
@@ -19,7 +20,8 @@ public class Usuario {
 		return this.alias;
 	}
 
-	//Retorna la cantidad de Muestras que el usuario cardo en los ultimos 30 dias.
+	/* Retorna la cantidad de Muestras que el usuario cardo en los ultimos 30 dias.
+	 * */
 	public int muestrasDelMes() {
 		int cant = 0;
 		Date hoy = new Date();
@@ -30,7 +32,8 @@ public class Usuario {
 		}
 		return cant;
 	}
-	//Retorna la cantidad de Verificaciones que el usuario cardo en los ultimos 30 dias.
+	/* Retorna la cantidad de Verificaciones que el usuario cardo en los ultimos 30 dias.
+	 * */
 	public int verificacionesDelMes() {
 		int cant = 0;
 		Date hoy = new Date();
@@ -41,7 +44,8 @@ public class Usuario {
 		}
 		return cant;
 	}
-	//Retorna el nivel del Usuario envaluando las Muestras y Verificaciones que cargo en los ultimos 30 dias.
+	/* Retorna el nivel del Usuario envaluando las Muestras y Verificaciones que cargo en los ultimos 30 dias.
+	 * */
 	public NivelUsuario getNivel() {
 		NivelUsuario nivel;
 		if (this.muestrasDelMes() >= 10 && this.verificacionesDelMes() >= 20) {
@@ -53,12 +57,14 @@ public class Usuario {
 		return nivel;
 	}
 
-	//Agrega una instancia de Verificacion realizaada por el usuario a la lista.
+	/* Agrega una instancia de Verificacion realizaada por el usuario a la lista.
+	 * */
 	public void agregarVerificacion(Verificacion ver) {
 		this.verificaciones.add(ver);
 	}
 
-	//Agrega una instancia de Muestra cargada por el usuario a la lista.
+	/* Agrega una instancia de Muestra cargada por el usuario a la lista.
+	 * */
 	public void agregarMuestra(Muestra muestra) {
 		this.muestrasPropias.add(muestra);
 	}

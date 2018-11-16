@@ -4,7 +4,8 @@ import java.util.Date;
 
 public final class UTILS {
 
-	//Calcula la diferencia en dias de las fechas que recibe.
+	/* Calcula la diferencia en dias de las fechas que recibe.
+	 * */
 	public static long diferenciaDias(Date startDate, Date endDate) {
 		long startTime = startDate.getTime();
 		long endTime = endDate.getTime();

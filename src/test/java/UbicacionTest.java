@@ -3,6 +3,7 @@ package test.java;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -42,7 +43,7 @@ public class UbicacionTest {
 
 	@Test
 	public void testUbicacion_ubicacionesCercanas() {
-		ArrayList<Ubicacion> ubs = new ArrayList<>();
+		List<Ubicacion> ubs = new ArrayList<>();
 		ubs.add(this.ubicacion2);
 		ubs.add(this.ubicacion3);
 		ubs.add(this.ubicacion4);
