@@ -6,5 +6,5 @@ import main.java.Muestra;
 
 public interface Filtro {
 
-	public List<Muestra> filtrar(List<Muestra> l);
+	public List<Muestra> filtrar(List<Muestra> ms);
 }

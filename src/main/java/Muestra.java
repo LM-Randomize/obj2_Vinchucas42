@@ -1,6 +1,8 @@
 package main.java;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -100,4 +102,9 @@ public class Muestra {
 		    	.anyMatch(v -> v.getUsuario() == usu);
 	}
 	
+	public Date getFechaUltimaVerificacion() {
+		return (Date)this.verificaciones.stream()
+				.map(v -> v.getFecha())
+				.max(Date::compareTo).get();
+	}
 }
