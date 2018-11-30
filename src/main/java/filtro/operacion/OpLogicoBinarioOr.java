@@ -1,4 +1,4 @@
-package main.java.filtros;
+package main.java.filtro.operacion;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.Set;
 
 import main.java.Muestra;
+import main.java.filtro.Filtro;
 
-public class OpLogicoBinariaOr extends OpLogicoBinaria {
+public class OpLogicoBinarioOr extends OpLogicoBinario {
 
-	OpLogicoBinariaOr(Filtro f1, Filtro f2) {
+	public OpLogicoBinarioOr(Filtro f1, Filtro f2) {
 		super(f1, f2);
 		// TODO Auto-generated constructor stub
 	}

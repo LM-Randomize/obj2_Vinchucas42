@@ -1,4 +1,4 @@
-package main.java.filtros;
+package main.java.filtro.criterio;
 
 import java.util.Date;
 import java.util.List;

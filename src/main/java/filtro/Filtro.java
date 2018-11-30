@@ -1,4 +1,4 @@
-package main.java.filtros;
+package main.java.filtro;
 
 import java.util.List;
 

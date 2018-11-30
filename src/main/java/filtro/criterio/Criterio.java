@@ -1,9 +1,10 @@
-package main.java.filtros;
+package main.java.filtro.criterio;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import main.java.Muestra;
+import main.java.filtro.Filtro;
 
 public abstract class Criterio implements Filtro {
 

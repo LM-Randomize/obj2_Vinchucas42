@@ -1,13 +1,14 @@
-package main.java.filtros;
+package main.java.filtro.operacion;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import main.java.Muestra;
+import main.java.filtro.Filtro;
 
-public class OpLogicoBinariaAnd extends OpLogicoBinaria {
+public class OpLogicoBinarioAnd extends OpLogicoBinario {
 
-	OpLogicoBinariaAnd(Filtro f1, Filtro f2) {
+	public OpLogicoBinarioAnd(Filtro f1, Filtro f2) {
 		super(f1, f2);
 		// TODO Auto-generated constructor stub
 	}

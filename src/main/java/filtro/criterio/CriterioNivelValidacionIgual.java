@@ -1,4 +1,4 @@
-package main.java.filtros;
+package main.java.filtro.criterio;
 
 import java.util.List;
 import java.util.stream.Collectors;

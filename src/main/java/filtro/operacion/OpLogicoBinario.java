@@ -1,15 +1,16 @@
-package main.java.filtros;
+package main.java.filtro.operacion;
 
 import java.util.List;
 
 import main.java.Muestra;
+import main.java.filtro.Filtro;
 
-public abstract class OpLogicoBinaria implements Filtro {
+public abstract class OpLogicoBinario implements Filtro {
 
 	private Filtro filtro1;
 	private Filtro filtro2;
 	
-	OpLogicoBinaria(Filtro f1, Filtro f2) {
+	public OpLogicoBinario(Filtro f1, Filtro f2) {
 		this.filtro1 = f1;
 		this.filtro2 = f2;
 	}
