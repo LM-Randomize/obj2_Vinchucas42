@@ -11,7 +11,7 @@ import org.junit.Test;
 import main.java.Muestra;
 import main.java.TipoMuestra;
 import main.java.Usuario;
-import main.java.Verificacion;
+import main.java.verificacion.Verificacion;
 
 public class VerificacionTest {
 

@@ -12,7 +12,7 @@ import org.junit.Test;
 import main.java.Muestra;
 import main.java.NivelUsuario;
 import main.java.UsuarioEspecialista;
-import main.java.Verificacion;
+import main.java.verificacion.Verificacion;
 
 public class UsuarioEspecialistaTest {
 	private UsuarioEspecialista usuario1;

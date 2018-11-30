@@ -7,16 +7,17 @@ import static org.mockito.Mockito.verifyZeroInteractions;
 import org.junit.Test;
 
 import main.java.Muestra;
-import main.java.NivelVerificacionAlto;
 import main.java.TipoMuestra;
 import main.java.Usuario;
+import main.java.verificacion.NivelVerificacionAlto;
+import main.java.verificacion.NivelesVerificacion;
 
 public class NivelVerificacionAltoTest {
 	private NivelVerificacionAlto nivelVerificacion = new NivelVerificacionAlto();
 	
 	@Test
 	public void testNivelVerificacionAlto_getNivel() {
-		assertEquals("Alto", this.nivelVerificacion.getNivel());
+		assertEquals(NivelesVerificacion.ALTO, this.nivelVerificacion.getNivel());
 	}
 	
 	@Test

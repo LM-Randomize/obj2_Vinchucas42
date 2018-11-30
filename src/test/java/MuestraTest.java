@@ -11,15 +11,16 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.INivelVerificacion;
 import main.java.Muestra;
-import main.java.NivelVerificacionBajo;
-import main.java.NivelVerificacionMedio;
 import main.java.TipoMuestra;
 import main.java.Ubicacion;
 import main.java.Usuario;
 import main.java.UsuarioEspecialista;
-import main.java.Verificacion;
+import main.java.verificacion.INivelVerificacion;
+import main.java.verificacion.NivelVerificacionBajo;
+import main.java.verificacion.NivelVerificacionMedio;
+import main.java.verificacion.NivelesVerificacion;
+import main.java.verificacion.Verificacion;
 
 public class MuestraTest {
 
@@ -48,7 +49,7 @@ public class MuestraTest {
 	}
 	@Test
 	public void muestraTest_getNivelDeVerificacion() {
-		assertEquals("Bajo", this.muestra.getNivelDeVerificacion());
+		assertEquals(NivelesVerificacion.BAJO, this.muestra.getNivelDeVerificacion());
 	}
 	@Test
 	public void muestraTest_getTipoDeMuestra() {
@@ -71,7 +72,7 @@ public class MuestraTest {
 	public void muestraTest_setNivelVerificacion() {
 		INivelVerificacion nivVerifBajo = new NivelVerificacionMedio();
 		this.muestra.setNivelDeVerificacion(nivVerifBajo);		
-		assertEquals("Medio", this.muestra.getNivelDeVerificacion());
+		assertEquals(NivelesVerificacion.MEDIO, this.muestra.getNivelDeVerificacion());
 	}
 	@Test
 	public void muestraTest_getVerificaciones() {
@@ -85,8 +86,8 @@ public class MuestraTest {
 		this.muestra.verificar(newUser, TipoMuestra.IMAGENPOCOCLARA);
 		//verifico que se llamara al m�todo del NivelVerificacion
 		verify(spyNivelVerifBajo).verificar(this.muestra, newUser , TipoMuestra.IMAGENPOCOCLARA);
-		//verifico que el nivel cambi� a "alto" y el tipo de muestra es el que le pas� el usuario especialista.
-		assertEquals("Alto", this.muestra.getNivelDeVerificacion());
+		//verifico que el nivel cambio a "alto" y el tipo de muestra es el que le paso el usuario especialista.
+		assertEquals(NivelesVerificacion.ALTO, this.muestra.getNivelDeVerificacion());
 		assertEquals(TipoMuestra.IMAGENPOCOCLARA, this.muestra.getTipoDeMuestra());
 	}
 	
@@ -104,7 +105,7 @@ public class MuestraTest {
 	public void muestraTest_SubirDeNivelAlVerificar() {
 		assertEquals(1,this.muestra.getCantVerificacionesDeTipo(TipoMuestra.VINCHUCA));
 		this.muestra.verificar(new Usuario("martin"), TipoMuestra.VINCHUCA);
-		assertEquals("Medio",this.muestra.getNivelDeVerificacion());
+		assertEquals(NivelesVerificacion.MEDIO,this.muestra.getNivelDeVerificacion());
 	}
 	
 }

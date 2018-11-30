@@ -12,7 +12,7 @@ public class CriterioFechaCreacionMayor extends CriterioFechaCreacion {
 
 	@Override
 	public boolean verificar(Muestra m) {
-		return m.getFechaCaptura().after(this.fecha);
+		return m.getFechaCaptura().compareTo(this.fecha) > 0;
 	}
 
 }

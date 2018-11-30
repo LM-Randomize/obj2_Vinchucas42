@@ -1,6 +1,10 @@
-package main.java;
+package main.java.verificacion;
 
 import java.util.Date;
+
+import main.java.Muestra;
+import main.java.TipoMuestra;
+import main.java.Usuario;
 
 public class Verificacion {
 

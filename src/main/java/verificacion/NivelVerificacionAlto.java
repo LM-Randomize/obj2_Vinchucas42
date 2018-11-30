@@ -1,10 +1,14 @@
-package main.java;
+package main.java.verificacion;
+
+import main.java.Muestra;
+import main.java.TipoMuestra;
+import main.java.Usuario;
 
 public class NivelVerificacionAlto extends NivelVerificacion {
 
 	@Override
-	public String getNivel() {
-		return "Alto";
+	public NivelesVerificacion getNivel() {
+		return NivelesVerificacion.ALTO;
 	}
 	
 	@Override

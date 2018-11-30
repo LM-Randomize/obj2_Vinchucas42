@@ -12,7 +12,7 @@ public class CriterioUltimaVerificacionMenor extends CriterioUltimaVerificacion 
 
 	@Override
 	public boolean verificar(Muestra m) {
-		return m.getFechaUltimaVerificacion().before(this.fecha);
+		return m.getFechaUltimaVerificacion().compareTo(this.fecha) < 0;
 	}
 
 }

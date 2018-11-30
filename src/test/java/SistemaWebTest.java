@@ -18,6 +18,7 @@ import main.java.TipoMuestra;
 import main.java.TipoOrganizacion;
 import main.java.Ubicacion;
 import main.java.Usuario;
+import main.java.verificacion.NivelesVerificacion;
 
 public class SistemaWebTest {
 
@@ -83,11 +84,11 @@ public class SistemaWebTest {
 	
 	@Test
 	public void testSistemaWeb_validarMuestra() {
-		assertEquals("Bajo",this.muestra1.getNivelDeVerificacion());
+		assertEquals(NivelesVerificacion.BAJO,this.muestra1.getNivelDeVerificacion());
 		this.sistema.validarMuestra(this.muestra1, this.usu1, TipoMuestra.VINCHUCA);
-		assertEquals("Bajo",this.muestra1.getNivelDeVerificacion()); //No deberia validar porque es el mismo usuario que lo dio de alta.
+		assertEquals(NivelesVerificacion.BAJO,this.muestra1.getNivelDeVerificacion()); //No deberia validar porque es el mismo usuario que lo dio de alta.
 		this.sistema.validarMuestra(this.muestra1, this.usu2, TipoMuestra.VINCHUCA);
-		assertEquals("Medio",this.muestra1.getNivelDeVerificacion());
+		assertEquals(NivelesVerificacion.MEDIO,this.muestra1.getNivelDeVerificacion());
 	}
 	
 	@Test

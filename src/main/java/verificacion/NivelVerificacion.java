@@ -1,4 +1,8 @@
-package main.java;
+package main.java.verificacion;
+
+import main.java.Muestra;
+import main.java.TipoMuestra;
+import main.java.Usuario;
 
 public abstract class NivelVerificacion implements INivelVerificacion{
 
@@ -20,7 +24,7 @@ public abstract class NivelVerificacion implements INivelVerificacion{
 		this.guardarVerificacion(muestra, usuario, tipo);
 	}
 	
-	public abstract String getNivel();
+	public abstract NivelesVerificacion getNivel();
 	
 	/* Procesa el comportamiento al querer cargar una nueva Verificacion de la Muestra.
 	 * Si el nivel de verificacion es Alto, entonces no realiza ninguna accion.

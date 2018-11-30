@@ -11,17 +11,18 @@ import org.junit.Test;
 
 import main.java.Muestra;
 import main.java.NivelUsuario;
-import main.java.NivelVerificacion;
-import main.java.NivelVerificacionMedio;
 import main.java.TipoMuestra;
 import main.java.Usuario;
+import main.java.verificacion.NivelVerificacion;
+import main.java.verificacion.NivelVerificacionMedio;
+import main.java.verificacion.NivelesVerificacion;
 
 public class NivelVerificacionMedioTest {
 	private NivelVerificacionMedio nivelVerificacion = new NivelVerificacionMedio();
 	
 	@Test
 	public void testNivelVerificacionMedio_getNivel() {
-		assertEquals("Medio", this.nivelVerificacion.getNivel());
+		assertEquals(NivelesVerificacion.MEDIO, this.nivelVerificacion.getNivel());
 	}
 	
 	@Test

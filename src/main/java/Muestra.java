@@ -6,6 +6,11 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
+import main.java.verificacion.INivelVerificacion;
+import main.java.verificacion.NivelVerificacionBajo;
+import main.java.verificacion.NivelesVerificacion;
+import main.java.verificacion.Verificacion;
+
 
 public class Muestra {
 	
@@ -47,7 +52,7 @@ public class Muestra {
 		return this.ubicacion;
 	}
 	
-	public String getNivelDeVerificacion() {
+	public NivelesVerificacion getNivelDeVerificacion() {
 		return this.nivelVerificacion.getNivel();
 	}
 	public void setNivelDeVerificacion(INivelVerificacion nivel) {

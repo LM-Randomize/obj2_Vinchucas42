@@ -11,20 +11,21 @@ import org.junit.Test;
 
 import main.java.Muestra;
 import main.java.NivelUsuario;
-import main.java.NivelVerificacion;
-import main.java.NivelVerificacionAlto;
-import main.java.NivelVerificacionBajo;
-import main.java.NivelVerificacionMedio;
 import main.java.TipoMuestra;
 import main.java.Usuario;
 import main.java.UsuarioEspecialista;
+import main.java.verificacion.NivelVerificacion;
+import main.java.verificacion.NivelVerificacionAlto;
+import main.java.verificacion.NivelVerificacionBajo;
+import main.java.verificacion.NivelVerificacionMedio;
+import main.java.verificacion.NivelesVerificacion;
 
 public class NivelVerificacionBajoTest {
 	private NivelVerificacionBajo nivelVerificacion = new NivelVerificacionBajo();
 	
 	@Test
 	public void testNivelVerificacionBajo_getNivel() {
-		assertEquals("Bajo", this.nivelVerificacion.getNivel());
+		assertEquals(NivelesVerificacion.BAJO, this.nivelVerificacion.getNivel());
 	}
 	
 	@Test

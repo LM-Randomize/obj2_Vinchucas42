@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import main.java.verificacion.Verificacion;
+
 public class Usuario {
 	
 	protected String alias;
