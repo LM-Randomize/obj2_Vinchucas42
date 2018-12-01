@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Matchers;
 
 import main.java.Muestra;
 import main.java.filtro.criterio.CriterioFechaCreacionIgual;
@@ -24,6 +23,7 @@ public class CriterioFechaCreacionTest {
 	private CriterioFechaCreacionMayor criterioFCMayor;
 	private CriterioFechaCreacionMenor criterioFCMenor;
 	
+	@SuppressWarnings("deprecation")
 	@Before
 	public void setUp() {
 		Muestra mockedMuestra1 = mock(Muestra.class);

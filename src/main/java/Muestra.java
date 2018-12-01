@@ -43,16 +43,25 @@ public class Muestra extends Observable {
 		return this.urlFoto;
 	}
 	
-	/* Retorna el alias de la persona que cargo la muestra
-	 * */
+	/**
+	 * Retorna el alias de la persona que cargo la muestra
+	 * @return String
+	 */
 	public String getPropietario() {
 		return this.propietario.getAlias();
 	}
 	
+	/**
+	 * Retorna la ubicacion donde fue encontrada la muestra
+	 * @return Ubicacion
+	 */
 	public Ubicacion getUbicacion() {
 		return this.ubicacion;
 	}
-	
+	/**
+	 * Retorna el nivel de verificación actual de la muestra
+	 * @return NivelesVerificacion
+	 */
 	public NivelesVerificacion getNivelDeVerificacion() {
 		return this.nivelVerificacion.getNivel();
 	}
@@ -85,9 +94,8 @@ public class Muestra extends Observable {
 	
 	/**
 	 * Delega al NivelVerificacion actual la logica de registro y evolucion del estado de los objetos involucrados.
-	 * @param usuario
-	 * @param tipoMuestra
-	 * @throws UsuarioRepetidoException 
+	 * @param usuario:Usuario
+	 * @param tipoMuestra:TipoMuestra
 	 */
 	public void verificar(Usuario usuario, TipoMuestra tipoMuestra) {
 		if (!this.yaVerifico(usuario)) {
@@ -95,15 +103,21 @@ public class Muestra extends Observable {
 		}
 	}
 	
-	/* Retorna la cantidad de verificaciones del TipoMuestra indicado.
-	 * */
+	/**
+	 * Retorna la cantidad de verificaciones del TipoMuestra indicado.
+	 * @param tipo:TipoMuestra
+	 * @return int
+	 */
 	public int getCantVerificacionesDeTipo(TipoMuestra tipo) {
 		return (int)this.verificaciones.stream()
 				.filter(v -> v.getTipoMuestra() == tipo).count();
 	}
 	
-	/* Retorna Si el usuario Ya Verifico la muestra.
-	 * */
+	/**
+	 * Retorna Si el usuario Ya Verifico la muestra.
+	 * @param usu:Usuario Usuario el cual queremos saber si verifico la muestra
+	 * @return boolean
+	 */
 	private boolean yaVerifico(Usuario usu) {
 		return this.verificaciones.stream()
 		    	.anyMatch(v -> v.getUsuario() == usu);

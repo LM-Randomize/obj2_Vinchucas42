@@ -5,7 +5,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
@@ -16,6 +15,7 @@ import main.java.Muestra;
 import main.java.filtro.Filtro;
 import main.java.filtro.operacion.OpLogicoBinarioAnd;
 
+@SuppressWarnings("deprecation")
 public class OpLogicoBinarioAndTest {
 
 	private List<Muestra> muestras1 = new ArrayList<Muestra>();

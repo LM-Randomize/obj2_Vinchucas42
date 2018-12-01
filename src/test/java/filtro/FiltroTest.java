@@ -23,21 +23,21 @@ import main.java.verificacion.NivelesVerificacion;
 
 public class FiltroTest {
 
-	/* Fecha de la última verificación > ‘20/04/2019’
+	/* Fecha de la Ultima verificacion > '20/04/2019'
 	 * */
 	private Filtro filtro1;
 	
-	/* Nivel de validación = alto ’ AND ​ Fecha de la última verificación > ‘20/04/2019’
+	/* Nivel de validacion = alto ’ AND ​ Fecha de la utima verificacion > '20/04/2019'
 	 * */
 	private Filtro filtro2;
 	
-	/* Tipo de insecto detectado = ‘Vinchuca’ AND (Nivel de validación = alto ’ OR ​ Fecha de la última verificación > ‘20/04/2019’)
+	/* Tipo de insecto detectado = 'Vinchuca' AND (Nivel de validacion = alto OR Fecha de la Ultima verificacion > '20/04/2019')
 	 * */
 	private Filtro filtro3;
 	
 	private List<Muestra> muestras = new ArrayList<Muestra>();
-	private CriterioTipoMuestraIgual criterioTMIgual;
 	
+	@SuppressWarnings("deprecation")
 	@Before
 	public void setUp() {
 		Muestra mockedMuestra1 = mock(Muestra.class);
@@ -70,17 +70,32 @@ public class FiltroTest {
 		this.muestras.add(mockedMuestra3);
 		this.muestras.add(mockedMuestra4);
 		this.muestras.add(mockedMuestra5);
+	}
 
-		// Fecha de la última verificación > ‘20/04/2019’
-		this.filtro1 = new CriterioUltimaVerificacionMayor(new Date(2019,04,20));
-		
-		// Nivel de validación = alto ’ AND ​ Fecha de la última verificación > ‘20/04/2019’
+
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testFiltro1_filtrar() {
+		// Fecha de la Ultima verificacion > '20/04/2019'
+				this.filtro1 = new CriterioUltimaVerificacionMayor(new Date(2019,04,20));
+		List<Muestra> lMuestras = this.filtro1.filtrar(this.muestras);
+		assertEquals(3, lMuestras.size());
+	}
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testFiltro2_filtrar() {
+		// Nivel de validacion = alto AND Fecha de la Ultima verificacion > '20/04/2019'
 		this.filtro2 = new OpLogicoBinarioAnd(
 							new CriterioNivelValidacionIgual(NivelesVerificacion.ALTO)
 							,new CriterioUltimaVerificacionMayor(new Date(2019,04,20))
 						);
-		
-		// Tipo de insecto detectado = ‘Vinchuca’ AND (Nivel de validación = alto ’ OR ​ Fecha de la última verificación > ‘20/04/2019’)
+		List<Muestra> lMuestras = this.filtro2.filtrar(this.muestras);
+		assertEquals(2, lMuestras.size());
+	}
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testFiltro3_filtrar() {
+		// Tipo de insecto detectado = 'Vinchuca' AND (Nivel de validacion = alto OR Fecha de la Ultima verificacion > 20/04/2019)
 		this.filtro3 = new OpLogicoBinarioAnd(
 							new CriterioTipoMuestraIgual(TipoMuestra.VINCHUCA)
 							,new OpLogicoBinarioOr(
@@ -88,21 +103,6 @@ public class FiltroTest {
 									,new CriterioUltimaVerificacionMayor(new Date(2019,04,20))
 							)
 						);
-	}
-
-
-	@Test
-	public void testFiltro1_filtrar() {
-		List<Muestra> lMuestras = this.filtro1.filtrar(this.muestras);
-		assertEquals(3, lMuestras.size());
-	}
-	@Test
-	public void testFiltro2_filtrar() {
-		List<Muestra> lMuestras = this.filtro2.filtrar(this.muestras);
-		assertEquals(2, lMuestras.size());
-	}
-	@Test
-	public void testFiltro3_filtrar() {
 		List<Muestra> lMuestras = this.filtro3.filtrar(this.muestras);
 		assertEquals(1, lMuestras.size());
 	}

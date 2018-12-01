@@ -23,6 +23,7 @@ public class CriterioUltimaVerificacionTest {
 	private CriterioUltimaVerificacionMayor criterioUVMayor;
 	private CriterioUltimaVerificacionMenor criterioUVMenor;
 	
+	@SuppressWarnings("deprecation")
 	@Before
 	public void setUp() {
 		Muestra mockedMuestra1 = mock(Muestra.class);

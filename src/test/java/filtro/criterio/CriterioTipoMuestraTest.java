@@ -13,7 +13,6 @@ import org.junit.Test;
 import main.java.Muestra;
 import main.java.TipoMuestra;
 import main.java.filtro.criterio.CriterioTipoMuestraIgual;
-import main.java.verificacion.NivelesVerificacion;
 
 public class CriterioTipoMuestraTest {
 

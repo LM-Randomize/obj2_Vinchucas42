@@ -15,6 +15,7 @@ import main.java.Muestra;
 import main.java.filtro.Filtro;
 import main.java.filtro.operacion.OpLogicoBinarioOr;
 
+@SuppressWarnings("deprecation")
 public class OpLogicoBinarioOrTest {
 
 	private List<Muestra> muestras1 = new ArrayList<Muestra>();

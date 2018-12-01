@@ -1,11 +1,9 @@
 package test.java;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.stream.Collectors;
 
 import org.junit.Before;

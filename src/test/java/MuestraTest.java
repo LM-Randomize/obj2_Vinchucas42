@@ -55,6 +55,7 @@ public class MuestraTest {
 	public void muestraTest_getTipoDeMuestra() {
 		assertEquals(TipoMuestra.VINCHUCA, this.muestra.getTipoDeMuestra());
 	}
+	@SuppressWarnings("deprecation")
 	@Test
 	public void muestraTest_getFechaCaptura() {
 		Date fechaResp = this.muestra.getFechaCaptura();
