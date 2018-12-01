@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Observable;
 
 import main.java.verificacion.INivelVerificacion;
 import main.java.verificacion.NivelVerificacionBajo;
@@ -12,7 +13,7 @@ import main.java.verificacion.NivelesVerificacion;
 import main.java.verificacion.Verificacion;
 
 
-public class Muestra {
+public class Muestra extends Observable {
 	
 	private String urlFoto;
 	private Ubicacion ubicacion;
@@ -33,7 +34,7 @@ public class Muestra {
 		this.fechaCaptura = new Date();
 		
 		Verificacion ver = new Verificacion(tipoMuestra,this,propietario);
-		this.verificaciones.add(ver);
+		this.agragarVerificacion(ver);
 		propietario.agregarVerificacion(ver);
 		
 	}
@@ -79,6 +80,7 @@ public class Muestra {
 	
 	public void agragarVerificacion(Verificacion ver) {
 		this.verificaciones.add(ver);
+		this.notificar("Verificacion");
 	}
 	
 	/**
@@ -111,5 +113,12 @@ public class Muestra {
 		return (Date)this.verificaciones.stream()
 				.map(v -> v.getFecha())
 				.max(Date::compareTo).get();
+	}
+	
+	
+
+	private void notificar(String aspecto){
+		this.setChanged();
+		this.notifyObservers(aspecto);
 	}
 }

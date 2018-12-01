@@ -1,6 +1,9 @@
 package main.java;
 
-public class Organizacion {
+import java.util.Observable;
+import java.util.Observer;
+
+public class Organizacion implements Observer {
 	
 	private String nombre;
 	private Ubicacion ubicacion;
@@ -28,6 +31,20 @@ public class Organizacion {
 	
 	public int getCantTrabajadores() {
 		return this.cantTrabajadores;
+	}
+	
+	
+
+	@Override
+	public void update(Observable o, Object arg) {
+		String aspecto = (String) arg;
+		if(arg.equals("AltaMuestra")){
+			// ACCION
+		}
+		else if(arg.equals("VerificacionMuestra")){
+			// ACCION
+		}
+		
 	}
 	
 }
