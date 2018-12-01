@@ -10,9 +10,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Muestra;
 import main.java.filtro.criterio.CriterioNivelValidacionIgual;
-import main.java.verificacion.NivelesVerificacion;
+import main.java.muestra.Muestra;
+import main.java.muestra.verificacion.NivelesVerificacion;
 
 public class CriterioNivelValidacionTest {
 

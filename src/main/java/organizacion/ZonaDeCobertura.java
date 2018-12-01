@@ -1,11 +1,14 @@
-package main.java;
+package main.java.organizacion;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import main.java.verificacion.Verificacion;
+import main.java.Ubicacion;
+import main.java.muestra.Muestra;
+import main.java.muestra.MuestraListener;
+import main.java.muestra.verificacion.Verificacion;
 
 public class ZonaDeCobertura implements MuestraListener {
 

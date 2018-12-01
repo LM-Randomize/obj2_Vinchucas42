@@ -1,4 +1,4 @@
-package test.java.verificacion;
+package test.java.muestra.verificacion;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -9,16 +9,16 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 
-import main.java.Muestra;
-import main.java.NivelUsuario;
-import main.java.TipoMuestra;
-import main.java.Usuario;
-import main.java.UsuarioEspecialista;
-import main.java.verificacion.NivelVerificacion;
-import main.java.verificacion.NivelVerificacionAlto;
-import main.java.verificacion.NivelVerificacionBajo;
-import main.java.verificacion.NivelVerificacionMedio;
-import main.java.verificacion.NivelesVerificacion;
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
+import main.java.muestra.verificacion.NivelVerificacion;
+import main.java.muestra.verificacion.NivelVerificacionAlto;
+import main.java.muestra.verificacion.NivelVerificacionBajo;
+import main.java.muestra.verificacion.NivelVerificacionMedio;
+import main.java.muestra.verificacion.NivelesVerificacion;
+import main.java.usuario.NivelUsuario;
+import main.java.usuario.Usuario;
+import main.java.usuario.UsuarioEspecialista;
 
 public class NivelVerificacionBajoTest {
 	private NivelVerificacionBajo nivelVerificacion = new NivelVerificacionBajo();

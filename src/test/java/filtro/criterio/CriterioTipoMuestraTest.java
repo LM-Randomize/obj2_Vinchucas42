@@ -10,9 +10,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Muestra;
-import main.java.TipoMuestra;
 import main.java.filtro.criterio.CriterioTipoMuestraIgual;
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
 
 public class CriterioTipoMuestraTest {
 

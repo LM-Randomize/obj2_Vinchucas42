@@ -1,10 +1,12 @@
-package main.java;
+package main.java.usuario;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import main.java.verificacion.Verificacion;
+import main.java.UTILS;
+import main.java.muestra.Muestra;
+import main.java.muestra.verificacion.Verificacion;
 
 public class Usuario {
 	

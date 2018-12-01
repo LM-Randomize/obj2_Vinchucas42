@@ -2,7 +2,7 @@ package main.java.filtro.criterio;
 
 import java.util.Date;
 
-import main.java.Muestra;
+import main.java.muestra.Muestra;
 
 public class CriterioFechaCreacionMenor extends CriterioFechaCreacion {
 

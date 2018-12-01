@@ -1,7 +1,7 @@
 package main.java.filtro.criterio;
 
-import main.java.Muestra;
-import main.java.TipoMuestra;
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
 
 public class CriterioTipoMuestraIgual extends Criterio {
 

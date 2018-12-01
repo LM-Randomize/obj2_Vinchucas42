@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import main.java.Muestra;
 import main.java.filtro.Filtro;
+import main.java.muestra.Muestra;
 
 public class OpLogicoBinarioOr extends OpLogicoBinario {
 

@@ -2,7 +2,7 @@ package main.java.filtro;
 
 import java.util.List;
 
-import main.java.Muestra;
+import main.java.muestra.Muestra;
 
 public interface Filtro {
 

@@ -1,4 +1,6 @@
-package main.java;
+package main.java.organizacion;
+
+import main.java.muestra.Muestra;
 
 public interface ZonaDeCoberturaListener {
 

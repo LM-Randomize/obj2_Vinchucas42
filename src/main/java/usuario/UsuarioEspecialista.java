@@ -1,4 +1,4 @@
-package main.java;
+package main.java.usuario;
 
 /* Segun lo conversado en clase acordamos que el usuario especialista 
  * nace y muere especialista, no puede adquirir la categoria.

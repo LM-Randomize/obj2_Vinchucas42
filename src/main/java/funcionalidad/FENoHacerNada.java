@@ -1,8 +1,8 @@
-package main.java.funcionalidades;
+package main.java.funcionalidad;
 
-import main.java.Muestra;
-import main.java.Organizacion;
-import main.java.ZonaDeCobertura;
+import main.java.muestra.Muestra;
+import main.java.organizacion.Organizacion;
+import main.java.organizacion.ZonaDeCobertura;
 
 public class FENoHacerNada implements IFuncionalidadExterna {
 

@@ -1,12 +1,14 @@
-package main.java;
+package main.java.organizacion;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import main.java.funcionalidades.IFuncionalidadExterna;
-import main.java.funcionalidades.FENoHacerNada;
+import main.java.Ubicacion;
+import main.java.funcionalidad.FENoHacerNada;
+import main.java.funcionalidad.IFuncionalidadExterna;
+import main.java.muestra.Muestra;
 
 public class Organizacion implements ZonaDeCoberturaListener {
 	

@@ -11,10 +11,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Muestra;
 import main.java.filtro.criterio.CriterioFechaCreacionIgual;
 import main.java.filtro.criterio.CriterioFechaCreacionMayor;
 import main.java.filtro.criterio.CriterioFechaCreacionMenor;
+import main.java.muestra.Muestra;
 
 public class CriterioFechaCreacionTest {
 

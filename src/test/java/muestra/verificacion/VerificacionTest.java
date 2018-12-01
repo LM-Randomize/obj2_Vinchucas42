@@ -1,4 +1,4 @@
-package test.java.verificacion;
+package test.java.muestra.verificacion;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -8,10 +8,10 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Muestra;
-import main.java.TipoMuestra;
-import main.java.Usuario;
-import main.java.verificacion.Verificacion;
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
+import main.java.muestra.verificacion.Verificacion;
+import main.java.usuario.Usuario;
 
 public class VerificacionTest {
 

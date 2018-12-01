@@ -1,8 +1,8 @@
-package main.java.verificacion;
+package main.java.muestra.verificacion;
 
-import main.java.Muestra;
-import main.java.TipoMuestra;
-import main.java.Usuario;
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
+import main.java.usuario.Usuario;
 
 public abstract class NivelVerificacion implements INivelVerificacion{
 

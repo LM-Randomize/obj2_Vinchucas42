@@ -11,10 +11,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Muestra;
 import main.java.filtro.criterio.CriterioUltimaVerificacionIgual;
 import main.java.filtro.criterio.CriterioUltimaVerificacionMayor;
 import main.java.filtro.criterio.CriterioUltimaVerificacionMenor;
+import main.java.muestra.Muestra;
 
 public class CriterioUltimaVerificacionTest {
 

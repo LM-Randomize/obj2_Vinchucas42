@@ -9,10 +9,10 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Muestra;
-import main.java.NivelUsuario;
-import main.java.Usuario;
-import main.java.verificacion.Verificacion;
+import main.java.muestra.Muestra;
+import main.java.muestra.verificacion.Verificacion;
+import main.java.usuario.NivelUsuario;
+import main.java.usuario.Usuario;
 
 public class UsuarioTest {
 

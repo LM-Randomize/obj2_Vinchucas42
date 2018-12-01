@@ -1,6 +1,6 @@
-package main.java;
+package main.java.muestra;
 
-import main.java.verificacion.Verificacion;
+import main.java.muestra.verificacion.Verificacion;
 
 public interface MuestraListener {
 	

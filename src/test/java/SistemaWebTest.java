@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Muestra;
-import main.java.Organizacion;
 import main.java.SistemaWeb;
-import main.java.TipoMuestra;
-import main.java.TipoOrganizacion;
 import main.java.Ubicacion;
-import main.java.Usuario;
-import main.java.verificacion.NivelesVerificacion;
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
+import main.java.muestra.verificacion.NivelesVerificacion;
+import main.java.organizacion.Organizacion;
+import main.java.organizacion.TipoOrganizacion;
+import main.java.usuario.Usuario;
 
 public class SistemaWebTest {
 

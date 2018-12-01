@@ -1,4 +1,4 @@
-package test.java.verificacion;
+package test.java.muestra.verificacion;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -6,11 +6,11 @@ import static org.mockito.Mockito.verifyZeroInteractions;
 
 import org.junit.Test;
 
-import main.java.Muestra;
-import main.java.TipoMuestra;
-import main.java.Usuario;
-import main.java.verificacion.NivelVerificacionAlto;
-import main.java.verificacion.NivelesVerificacion;
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
+import main.java.muestra.verificacion.NivelVerificacionAlto;
+import main.java.muestra.verificacion.NivelesVerificacion;
+import main.java.usuario.Usuario;
 
 public class NivelVerificacionAltoTest {
 	private NivelVerificacionAlto nivelVerificacion = new NivelVerificacionAlto();

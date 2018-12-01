@@ -11,9 +11,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
 
-import main.java.Muestra;
 import main.java.filtro.Filtro;
 import main.java.filtro.operacion.OpLogicoBinarioAnd;
+import main.java.muestra.Muestra;
 
 @SuppressWarnings("deprecation")
 public class OpLogicoBinarioAndTest {

@@ -11,16 +11,16 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Muestra;
-import main.java.TipoMuestra;
 import main.java.Ubicacion;
-import main.java.Usuario;
-import main.java.UsuarioEspecialista;
-import main.java.verificacion.INivelVerificacion;
-import main.java.verificacion.NivelVerificacionBajo;
-import main.java.verificacion.NivelVerificacionMedio;
-import main.java.verificacion.NivelesVerificacion;
-import main.java.verificacion.Verificacion;
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
+import main.java.muestra.verificacion.INivelVerificacion;
+import main.java.muestra.verificacion.NivelVerificacionBajo;
+import main.java.muestra.verificacion.NivelVerificacionMedio;
+import main.java.muestra.verificacion.NivelesVerificacion;
+import main.java.muestra.verificacion.Verificacion;
+import main.java.usuario.Usuario;
+import main.java.usuario.UsuarioEspecialista;
 
 public class MuestraTest {
 

@@ -1,4 +1,4 @@
-package main.java;
+package main.java.muestra;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -7,10 +7,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Observable;
 
-import main.java.verificacion.INivelVerificacion;
-import main.java.verificacion.NivelVerificacionBajo;
-import main.java.verificacion.NivelesVerificacion;
-import main.java.verificacion.Verificacion;
+import main.java.Ubicacion;
+import main.java.muestra.verificacion.INivelVerificacion;
+import main.java.muestra.verificacion.NivelVerificacionBajo;
+import main.java.muestra.verificacion.NivelesVerificacion;
+import main.java.muestra.verificacion.Verificacion;
+import main.java.usuario.Usuario;
 
 
 public class Muestra extends Observable {

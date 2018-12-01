@@ -1,4 +1,4 @@
-package main.java;
+package main.java.organizacion;
 
 public enum TipoOrganizacion {
 	SALUD

@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
+import main.java.organizacion.Organizacion;
+import main.java.organizacion.TipoOrganizacion;
+import main.java.usuario.Usuario;
+
 public class SistemaWeb {
 	
 	private List<Muestra> muestras;

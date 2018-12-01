@@ -11,15 +11,15 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Muestra;
-import main.java.TipoMuestra;
 import main.java.filtro.Filtro;
 import main.java.filtro.criterio.CriterioNivelValidacionIgual;
 import main.java.filtro.criterio.CriterioTipoMuestraIgual;
 import main.java.filtro.criterio.CriterioUltimaVerificacionMayor;
 import main.java.filtro.operacion.OpLogicoBinarioAnd;
 import main.java.filtro.operacion.OpLogicoBinarioOr;
-import main.java.verificacion.NivelesVerificacion;
+import main.java.muestra.Muestra;
+import main.java.muestra.TipoMuestra;
+import main.java.muestra.verificacion.NivelesVerificacion;
 
 public class FiltroTest {
 

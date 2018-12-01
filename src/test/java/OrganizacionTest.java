@@ -6,9 +6,9 @@ import static org.mockito.Mockito.mock;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.Organizacion;
-import main.java.TipoOrganizacion;
 import main.java.Ubicacion;
+import main.java.organizacion.Organizacion;
+import main.java.organizacion.TipoOrganizacion;
 
 public class OrganizacionTest {
 	

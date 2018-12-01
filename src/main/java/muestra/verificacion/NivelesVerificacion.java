@@ -1,4 +1,4 @@
-package main.java.verificacion;
+package main.java.muestra.verificacion;
 
 public enum NivelesVerificacion {
 	ALTO
