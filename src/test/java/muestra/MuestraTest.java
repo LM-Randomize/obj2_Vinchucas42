@@ -1,4 +1,4 @@
-package test.java;
+package test.java.muestra;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -10,6 +10,7 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Matchers;
 
 import main.java.Ubicacion;
 import main.java.muestra.Muestra;
@@ -19,6 +20,8 @@ import main.java.muestra.verificacion.NivelVerificacionBajo;
 import main.java.muestra.verificacion.NivelVerificacionMedio;
 import main.java.muestra.verificacion.NivelesVerificacion;
 import main.java.muestra.verificacion.Verificacion;
+import main.java.organizacion.ZonaDeCobertura;
+import main.java.usuario.NivelUsuario;
 import main.java.usuario.Usuario;
 import main.java.usuario.UsuarioEspecialista;
 
@@ -85,7 +88,7 @@ public class MuestraTest {
 		this.muestra.setNivelDeVerificacion(spyNivelVerifBajo);		
 		UsuarioEspecialista newUser = new UsuarioEspecialista("Diego");
 		this.muestra.verificar(newUser, TipoMuestra.IMAGENPOCOCLARA);
-		//verifico que se llamara al m�todo del NivelVerificacion
+		//verifico que se llamara al metodo del NivelVerificacion
 		verify(spyNivelVerifBajo).verificar(this.muestra, newUser , TipoMuestra.IMAGENPOCOCLARA);
 		//verifico que el nivel cambio a "alto" y el tipo de muestra es el que le paso el usuario especialista.
 		assertEquals(NivelesVerificacion.ALTO, this.muestra.getNivelDeVerificacion());
@@ -107,6 +110,17 @@ public class MuestraTest {
 		assertEquals(1,this.muestra.getCantVerificacionesDeTipo(TipoMuestra.VINCHUCA));
 		this.muestra.verificar(new Usuario("martin"), TipoMuestra.VINCHUCA);
 		assertEquals(NivelesVerificacion.MEDIO,this.muestra.getNivelDeVerificacion());
+	}
+	
+	@Test
+	public void muestraTest_notificarMuestraVerificada() {
+		Verificacion mockedVerificacion = mock(Verificacion.class);
+		ZonaDeCobertura mockedZona = mock(ZonaDeCobertura.class); 
+		
+		this.muestra.agregarListener(mockedZona);
+		this.muestra.agragarVerificacion(mockedVerificacion);
+		
+		verify(mockedZona).muestraVerificada(this.muestra, mockedVerificacion);
 	}
 	
 }
