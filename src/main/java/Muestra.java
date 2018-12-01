@@ -22,6 +22,7 @@ public class Muestra extends Observable {
 	private List<Verificacion> verificaciones;
 	private TipoMuestra tipoMuestra;
 	private Date fechaCaptura;
+	private List<MuestraListener> listeners;
 	
 
 	public Muestra(String urlFoto, Ubicacion ubicacion, Usuario propietario, TipoMuestra tipoMuestra) {
@@ -32,6 +33,7 @@ public class Muestra extends Observable {
 		this.verificaciones = new ArrayList<Verificacion>();
 		this.tipoMuestra = tipoMuestra;
 		this.fechaCaptura = new Date();
+		this.listeners = new ArrayList<>();
 		
 		Verificacion ver = new Verificacion(tipoMuestra,this,propietario);
 		this.agragarVerificacion(ver);
@@ -59,7 +61,7 @@ public class Muestra extends Observable {
 		return this.ubicacion;
 	}
 	/**
-	 * Retorna el nivel de verificación actual de la muestra
+	 * Retorna el nivel de verificaciï¿½n actual de la muestra
 	 * @return NivelesVerificacion
 	 */
 	public NivelesVerificacion getNivelDeVerificacion() {
@@ -89,7 +91,7 @@ public class Muestra extends Observable {
 	
 	public void agragarVerificacion(Verificacion ver) {
 		this.verificaciones.add(ver);
-		this.notificar("Verificacion");
+		this.notificarMuestraVerificada(ver);
 	}
 	
 	/**
@@ -131,8 +133,17 @@ public class Muestra extends Observable {
 	
 	
 
-	private void notificar(String aspecto){
-		this.setChanged();
-		this.notifyObservers(aspecto);
+	
+	public void agregarListener(MuestraListener l) {
+		this.listeners.add(l);
+	}
+	public void removerListener(MuestraListener l) {
+		this.listeners.remove(l);
+	}
+
+	private void notificarMuestraVerificada(Verificacion v) {
+		for (MuestraListener listener : this.listeners) {
+			listener.muestraVerificada(this, v);
+		}
 	}
 }
