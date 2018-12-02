@@ -7,8 +7,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +15,6 @@ import main.java.muestra.Muestra;
 import main.java.muestra.verificacion.Verificacion;
 import main.java.organizacion.Organizacion;
 import main.java.organizacion.ZonaDeCobertura;
-import main.java.organizacion.ZonaDeCoberturaListener;
 
 public class ZonaDeCoberturaTest {
 

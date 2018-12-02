@@ -27,6 +27,18 @@ public class UbicacionTest {
 	}
 	
 	@Test
+	public void testUbicacion_setLatitud() {
+		double newLat = 5;
+		this.ubicacion1.setLatitud(newLat);
+		assertEquals(newLat, this.ubicacion1.getLatitud(), 0);
+	}
+	@Test
+	public void testUbicacion_setLongitud() {
+		double newLong = 5;
+		this.ubicacion1.setLongitud(newLong);
+		assertEquals(newLong, this.ubicacion1.getLongitud(), 0);
+	}
+	@Test
 	public void testUbicacion_getLatitud() {
 		assertEquals((double)1, this.ubicacion1.getLatitud(), 0);
 	}

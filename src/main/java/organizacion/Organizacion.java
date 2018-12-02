@@ -2,8 +2,6 @@ package main.java.organizacion;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 import main.java.Ubicacion;
 import main.java.funcionalidad.FENoHacerNada;
@@ -83,7 +81,6 @@ public class Organizacion implements ZonaDeCoberturaListener {
 	@Override
 	public void muestraCargada(ZonaDeCobertura z, Muestra m) {
 		this.funcionAltaMuestra.nuevoEvento(this, z, m);
-		
 	}
 	@Override
 	public void muestraVerificada(ZonaDeCobertura z, Muestra m) {

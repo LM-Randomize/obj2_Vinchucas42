@@ -1,8 +1,8 @@
 package test.java.muestra;
 
 import static org.junit.Assert.assertEquals;
+
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -10,7 +10,7 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Matchers;
+import org.mockito.Mockito;
 
 import main.java.Ubicacion;
 import main.java.muestra.Muestra;
@@ -21,10 +21,9 @@ import main.java.muestra.verificacion.NivelVerificacionMedio;
 import main.java.muestra.verificacion.NivelesVerificacion;
 import main.java.muestra.verificacion.Verificacion;
 import main.java.organizacion.ZonaDeCobertura;
-import main.java.usuario.NivelUsuario;
 import main.java.usuario.Usuario;
 import main.java.usuario.UsuarioEspecialista;
-
+@SuppressWarnings("deprecation")
 public class MuestraTest {
 
 	private Muestra muestra;
@@ -58,7 +57,6 @@ public class MuestraTest {
 	public void muestraTest_getTipoDeMuestra() {
 		assertEquals(TipoMuestra.VINCHUCA, this.muestra.getTipoDeMuestra());
 	}
-	@SuppressWarnings("deprecation")
 	@Test
 	public void muestraTest_getFechaCaptura() {
 		Date fechaResp = this.muestra.getFechaCaptura();
@@ -66,6 +64,12 @@ public class MuestraTest {
 		assertEquals(fechaHoy.getDay(), fechaResp.getDay());
 		assertEquals(fechaHoy.getMonth(), fechaResp.getMonth());
 		assertEquals(fechaHoy.getYear(), fechaResp.getYear());
+	}
+	@Test
+	public void muestraTest_setFechaCaptura() {
+		Date nuevaFecha = new Date(2018, 10, 10);
+		this.muestra.setFechaCaptura(nuevaFecha);
+		assertEquals(nuevaFecha, this.muestra.getFechaCaptura());
 	}
 	@Test
 	public void muestraTest_setTipoDeMuestra() {
@@ -83,13 +87,22 @@ public class MuestraTest {
 		assertEquals(1, this.muestra.getVerificaciones().size());
 	}
 	@Test
-	public void muestraTest_verificar() {
-		NivelVerificacionBajo spyNivelVerifBajo = spy(new NivelVerificacionBajo());
+	public void muestraTest_verificarLlamadaInterna() {
+		NivelVerificacionBajo spyNivelVerifBajo = mock(NivelVerificacionBajo.class);
 		this.muestra.setNivelDeVerificacion(spyNivelVerifBajo);		
 		UsuarioEspecialista newUser = new UsuarioEspecialista("Diego");
 		this.muestra.verificar(newUser, TipoMuestra.IMAGENPOCOCLARA);
 		//verifico que se llamara al metodo del NivelVerificacion
-		verify(spyNivelVerifBajo).verificar(this.muestra, newUser , TipoMuestra.IMAGENPOCOCLARA);
+		verify(spyNivelVerifBajo, Mockito.times(1)).verificar(this.muestra, newUser , TipoMuestra.IMAGENPOCOCLARA);
+		//Verifico que no llame al metodo del NivelVerificacion en caso de ya haber verificado.
+		verify(spyNivelVerifBajo, Mockito.times(0)).verificar(this.muestra, newUser , TipoMuestra.INDEFINIDO);
+	}
+	
+	@Test
+	public void muestraTest_verificarCambiaNivel() {
+		this.muestra.setNivelDeVerificacion(new NivelVerificacionBajo());		
+		UsuarioEspecialista newUser = new UsuarioEspecialista("Diego");
+		this.muestra.verificar(newUser, TipoMuestra.IMAGENPOCOCLARA);
 		//verifico que el nivel cambio a "alto" y el tipo de muestra es el que le paso el usuario especialista.
 		assertEquals(NivelesVerificacion.ALTO, this.muestra.getNivelDeVerificacion());
 		assertEquals(TipoMuestra.IMAGENPOCOCLARA, this.muestra.getTipoDeMuestra());
@@ -111,7 +124,6 @@ public class MuestraTest {
 		this.muestra.verificar(new Usuario("martin"), TipoMuestra.VINCHUCA);
 		assertEquals(NivelesVerificacion.MEDIO,this.muestra.getNivelDeVerificacion());
 	}
-	
 	@Test
 	public void muestraTest_notificarMuestraVerificada() {
 		Verificacion mockedVerificacion = mock(Verificacion.class);
@@ -122,5 +134,15 @@ public class MuestraTest {
 		
 		verify(mockedZona).muestraVerificada(this.muestra, mockedVerificacion);
 	}
-	
+	@Test
+	public void getFechaUltimaVerificacion() {
+		Date fechaHoy = new Date();
+		this.muestra.setNivelDeVerificacion(new NivelVerificacionBajo());		
+		UsuarioEspecialista newUser = new UsuarioEspecialista("Diego");
+		this.muestra.verificar(newUser, TipoMuestra.IMAGENPOCOCLARA);
+		Date fechaResp = this.muestra.getFechaUltimaVerificacion();
+		assertEquals(fechaHoy.getDay(), fechaResp.getDay());
+		assertEquals(fechaHoy.getMonth(), fechaResp.getMonth());
+		assertEquals(fechaHoy.getYear(), fechaResp.getYear());
+	}
 }

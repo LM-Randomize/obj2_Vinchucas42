@@ -2,8 +2,6 @@ package main.java.organizacion;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 import main.java.Ubicacion;
 import main.java.muestra.Muestra;
