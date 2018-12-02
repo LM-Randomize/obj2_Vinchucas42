@@ -33,6 +33,11 @@ public class SistemaWeb {
 	}
 
 	/* Retorna y almacena una nueva instancia de Muestra
+	 * @param foto: String URL de la foto de la muestra.
+	 * @param ubicacion: Ubicacion Ubicacion donde fue tomada la muestra
+	 * @param usuario: Usuario Usuario que toma la muestra
+	 * @param tipoMuestra: TipoMuestra Tipo de muestra segun el usuario que la envia.
+	 * @return Muestra muestra que se cargo.
 	 * */
 	public Muestra registrarMuestra(String foto, Ubicacion ubicacion, Usuario usuario, TipoMuestra tipoMuestra) {
 		Muestra muestra = new Muestra(foto,ubicacion,usuario,tipoMuestra);
@@ -41,6 +46,8 @@ public class SistemaWeb {
 	}
 	
 	/* Retorna y almacena una nueva instancia de Usuario
+	 * @param alias:String nombre del nuevo usuario
+	 * @return Usuario usuario creado.
 	 * */
 	public Usuario registrarUsuario(String alias) {
 		Usuario usuario = new Usuario(alias);
@@ -49,6 +56,11 @@ public class SistemaWeb {
 	}
 	
 	/* Retorna y almacena una nueva instancia de Organizacion
+	 * @param nombre:String nombre de la organizacion
+	 * @param ubicacion:Ubicacion ubicacion donde se encuentra la organizacion
+	 * @param tipoOrg:TipoOrganizacion tipo de la organizacion
+	 * @param cantTrabajadores:int cantidad de trabajadores que pertenecen a la organizacion
+	 * @return Organizacion organizacion creada.
 	 * */
 	public Organizacion registrarOrganizacion(String nombre, Ubicacion ubicacion, TipoOrganizacion tipoOrg, int cantTrabajadores) {
 		Organizacion org = new Organizacion(nombre, ubicacion, tipoOrg, cantTrabajadores);
@@ -57,12 +69,18 @@ public class SistemaWeb {
 	}
 	
 	/* Valida la muestra indicado por el usuario recibido
+	 * @param muestra:Muestra muestra a validar
+	 * @param usuario:Usuario usuario que valida la muestra
+	 * @param tipo:TipoMuestra tipo de muestra que el usuario quiere validar
 	 * */
 	public void validarMuestra(Muestra muestra, Usuario usuario, TipoMuestra tipo) {
 		muestra.verificar(usuario, tipo);
 	}
 	
 	/* Retorna las muestras capturadas a menos de x Kms
+	 * @param muestra:Muestra muestra desde la cual se quiere obtener muestras cercanas
+	 * @param dist:double distancia alrededor de la muestra
+	 * @return List<Muestra> lista de las muestras cercanas
 	 * */
 	public List<Muestra> muestrasCercanas(Muestra muestra, double dist) {
 		Ubicacion ubicacion1 = muestra.getUbicacion();

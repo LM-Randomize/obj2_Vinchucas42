@@ -1,6 +1,9 @@
 package main.java.filtro.operacion;
 
+import java.util.List;
+
 import main.java.filtro.Filtro;
+import main.java.muestra.Muestra;
 
 public abstract class OpLogicoBinario implements Filtro {
 
@@ -19,5 +22,6 @@ public abstract class OpLogicoBinario implements Filtro {
 	public Filtro getFiltro2() {
 		return filtro2;
 	}
-
+	
+	public abstract List<Muestra> filtrar(List<Muestra> ms);
 }
