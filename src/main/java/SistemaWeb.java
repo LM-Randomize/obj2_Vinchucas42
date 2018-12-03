@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import main.java.filtro.Filtro;
 import main.java.muestra.Muestra;
 import main.java.muestra.TipoMuestra;
 import main.java.organizacion.Organizacion;
@@ -22,6 +23,12 @@ public class SistemaWeb {
 		this.organizaciones = new ArrayList<Organizacion>();
 	}
 	
+	/* Setter creado unicamente para testear con mayor facilidad
+	 */
+	public void setMuestras(List<Muestra> muestras) {
+		this.muestras = muestras;
+	}
+	
 	public List<Muestra> getMuestras() {
 		return muestras;
 	}
@@ -32,7 +39,8 @@ public class SistemaWeb {
 		return organizaciones;
 	}
 
-	/* Retorna y almacena una nueva instancia de Muestra
+	/** 
+	 * Retorna y almacena una nueva instancia de Muestra
 	 * @param foto: String URL de la foto de la muestra.
 	 * @param ubicacion: Ubicacion Ubicacion donde fue tomada la muestra
 	 * @param usuario: Usuario Usuario que toma la muestra
@@ -45,7 +53,8 @@ public class SistemaWeb {
 		return muestra;
 	}
 	
-	/* Retorna y almacena una nueva instancia de Usuario
+	/** 
+	 * Retorna y almacena una nueva instancia de Usuario
 	 * @param alias:String nombre del nuevo usuario
 	 * @return Usuario usuario creado.
 	 * */
@@ -55,7 +64,8 @@ public class SistemaWeb {
 		return usuario;
 	}
 	
-	/* Retorna y almacena una nueva instancia de Organizacion
+	/** 
+	 * Retorna y almacena una nueva instancia de Organizacion
 	 * @param nombre:String nombre de la organizacion
 	 * @param ubicacion:Ubicacion ubicacion donde se encuentra la organizacion
 	 * @param tipoOrg:TipoOrganizacion tipo de la organizacion
@@ -68,7 +78,8 @@ public class SistemaWeb {
 		return org;
 	}
 	
-	/* Valida la muestra indicado por el usuario recibido
+	/** 
+	 * Valida la muestra indicado por el usuario recibido
 	 * @param muestra:Muestra muestra a validar
 	 * @param usuario:Usuario usuario que valida la muestra
 	 * @param tipo:TipoMuestra tipo de muestra que el usuario quiere validar
@@ -77,7 +88,7 @@ public class SistemaWeb {
 		muestra.verificar(usuario, tipo);
 	}
 	
-	/* Retorna las muestras capturadas a menos de x Kms
+	/** Retorna las muestras capturadas a menos de x Kms
 	 * @param muestra:Muestra muestra desde la cual se quiere obtener muestras cercanas
 	 * @param dist:double distancia alrededor de la muestra
 	 * @return List<Muestra> lista de las muestras cercanas
@@ -88,5 +99,12 @@ public class SistemaWeb {
 				.filter(m -> ubicacion1.distanciaCon(m.getUbicacion()) <= dist)
 				.collect(Collectors.toList());
 	}
-	
+	/**
+	 * Filtra las muestras por el filtro pasado, retornando las muestras que cumplen con los criterios.
+	 * @param filtro: Filtro filtro por el cual se quieren conocer las muestras
+	 * @return List<Muestra> lista de muestras filtradas
+	 */
+	public List<Muestra> filtrarMuestras(Filtro filtro) {
+		return filtro.filtrar(this.muestras);
+	}
 }

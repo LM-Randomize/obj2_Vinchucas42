@@ -8,13 +8,15 @@ import main.java.muestra.Muestra;
 
 public abstract class Criterio implements Filtro {
 
-	/** Verifica que una muestra cumpla con un criterio de filtrado.
+	/** 
+	 * Verifica que una muestra cumpla con un criterio de filtrado.
 	 * @param m:Muestra muestra a verificar si cumple con el criterio
 	 * @return boolean retorna si cumple o no con el criterio
 	 */
 	public abstract boolean verificar(Muestra m);
 	
-	/** filtra una lista de muestras por el criterio elegido
+	/** 
+	 * filtra una lista de muestras por el criterio elegido
 	 * @param ms:List<Muestra> lista de muestras a filtrar
 	 * @return List<Muestra> lista filtrada de muestras.
 	 */

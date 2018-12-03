@@ -32,7 +32,8 @@ public class Ubicacion {
 		this.longitud = longitud;
 	}
 	
-	/* Retorna la distancia entre las coordenadas de la ubicacion actual y la que recibe por parametro.
+	/** 
+	 * Retorna la distancia entre las coordenadas de la ubicacion actual y la que recibe por parametro.
 	 * @param ubicacion:Ubicacion ubicacion con la cual se quiere saber la distancia.
 	 * @return double distancia entre las ubicaciones
 	 * */
@@ -56,7 +57,8 @@ public class Ubicacion {
         return distancia;  
 	}
 	
-	/* Retorna las ubicaciones que se encuentran a menos de x Kms
+	/** 
+	 * Retorna las ubicaciones que se encuentran a menos de x Kms
 	 * @param ubicaciones: List<Ubicacion> lista de las ubicaciones de las cuales se quiere saber si estan en el area
 	 * @param dist:double distancia maxima entre ubicaciones
 	 * @return List<Ubicacion> lista de ubicaciones que estan en el rango

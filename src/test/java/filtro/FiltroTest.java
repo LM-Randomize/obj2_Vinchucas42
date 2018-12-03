@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import main.java.SistemaWeb;
 import main.java.filtro.Filtro;
 import main.java.filtro.criterio.CriterioNivelValidacionIgual;
 import main.java.filtro.criterio.CriterioTipoMuestraIgual;
@@ -36,6 +37,8 @@ public class FiltroTest {
 	private Filtro filtro3;
 	
 	private List<Muestra> muestras = new ArrayList<Muestra>();
+	
+	private SistemaWeb sistWeb = new SistemaWeb();
 	
 	@SuppressWarnings("deprecation")
 	@Before
@@ -70,6 +73,8 @@ public class FiltroTest {
 		this.muestras.add(mockedMuestra3);
 		this.muestras.add(mockedMuestra4);
 		this.muestras.add(mockedMuestra5);
+		
+		sistWeb.setMuestras(this.muestras);
 	}
 
 
@@ -78,7 +83,7 @@ public class FiltroTest {
 	public void testFiltro1_filtrar() {
 		// Fecha de la Ultima verificacion > '20/04/2019'
 				this.filtro1 = new CriterioUltimaVerificacionMayor(new Date(2019,04,20));
-		List<Muestra> lMuestras = this.filtro1.filtrar(this.muestras);
+		List<Muestra> lMuestras = this.sistWeb.filtrarMuestras(this.filtro1);
 		assertEquals(3, lMuestras.size());
 	}
 	@SuppressWarnings("deprecation")
@@ -89,7 +94,7 @@ public class FiltroTest {
 							new CriterioNivelValidacionIgual(NivelesVerificacion.ALTO)
 							,new CriterioUltimaVerificacionMayor(new Date(2019,04,20))
 						);
-		List<Muestra> lMuestras = this.filtro2.filtrar(this.muestras);
+		List<Muestra> lMuestras = this.sistWeb.filtrarMuestras(this.filtro2);
 		assertEquals(2, lMuestras.size());
 	}
 	@SuppressWarnings("deprecation")
@@ -103,7 +108,7 @@ public class FiltroTest {
 									,new CriterioUltimaVerificacionMayor(new Date(2019,04,20))
 							)
 						);
-		List<Muestra> lMuestras = this.filtro3.filtrar(this.muestras);
+		List<Muestra> lMuestras = this.sistWeb.filtrarMuestras(this.filtro3);
 		assertEquals(1, lMuestras.size());
 	}
 }

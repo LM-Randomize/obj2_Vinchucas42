@@ -24,7 +24,8 @@ public class Usuario {
 		return this.alias;
 	}
 
-	/** Retorna la cantidad de Muestras que el usuario cargo en los ultimos 30 dias.
+	/**
+	 * Retorna la cantidad de Muestras que el usuario cargo en los ultimos 30 dias.
 	 * @return int Cantidad de muestras cargadas por el usuario en los ultimos 30 dias
 	 */
 	public int muestrasDelMes() {
@@ -37,7 +38,8 @@ public class Usuario {
 		}
 		return cant;
 	}
-	/** Retorna la cantidad de Verificaciones que el usuario cargo en los ultimos 30 dias.
+	/**
+	 * Retorna la cantidad de Verificaciones que el usuario cargo en los ultimos 30 dias.
 	 * @return int Cantidad de Verificaciones cargadas por el usuario en los ultimos 30 dias
 	 */
 	public int verificacionesDelMes() {
