@@ -70,6 +70,7 @@ public class ZonaDeCobertura implements MuestraListener {
 	public void subscribirMuestraSiPertenece(Muestra muestra) {
 		if (perteneceUbicacion(muestra.getUbicacion())) {
 			this.muestras.add(muestra);
+			muestra.agregarListener(this);
 			this.notificarMuestraCargada(muestra);
 		}
 	}

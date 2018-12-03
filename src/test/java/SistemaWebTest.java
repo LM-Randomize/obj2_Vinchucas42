@@ -2,12 +2,17 @@ package test.java;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Matchers;
 
 import main.java.SistemaWeb;
 import main.java.Ubicacion;
@@ -16,6 +21,7 @@ import main.java.muestra.TipoMuestra;
 import main.java.muestra.verificacion.NivelesVerificacion;
 import main.java.organizacion.Organizacion;
 import main.java.organizacion.TipoOrganizacion;
+import main.java.organizacion.ZonaDeCobertura;
 import main.java.usuario.Usuario;
 
 public class SistemaWebTest {
@@ -71,14 +77,27 @@ public class SistemaWebTest {
 		assertTrue(org.contains(this.org1));
 	}
 	
-	//@Test
-	//public void testSistemaWeb_registrarMuestra() {}
+	@Test
+	public void testSistemaWeb_registrarMuestra_suscripcionAMuestra() {
+		ZonaDeCobertura zona = mock(ZonaDeCobertura.class);
+		this.sistema.setZonasDeCobertura(new ArrayList<ZonaDeCobertura>() {{ add(zona); }} );
+		Ubicacion mockedUbicacion = mock(Ubicacion.class);
+		when(mockedUbicacion.distanciaCon(Matchers.any())).thenReturn((double) 10);
+		
+		this.sistema.registrarMuestra("lalala.com", mockedUbicacion, this.usu3, TipoMuestra.INDEFINIDO);
+		
+		verify(zona).subscribirMuestraSiPertenece(Matchers.any());
+	}
 	
 	//@Test
 	//public void testSistemaWeb_registrarUsuario() {}
 	
 	//@Test
 	//public void testSistemaWeb_registrarOrganizacion() {}
+	
+	//@Test
+	//public void testSistemaWeb_registrarZonaDeCobertura() {}
+	
 	
 	@Test
 	public void testSistemaWeb_validarMuestra() {
@@ -94,5 +113,25 @@ public class SistemaWebTest {
 		List<Muestra> muestrasCercanas = this.sistema.muestrasCercanas(this.muestra1, 700);
 		assertEquals(1,muestrasCercanas.size());
 		//assertTrue(muestrasCercanas.contains(this.muestra2));
+	}
+	
+	@Test
+	public void testSistemaWeb_suscribirOrganizacionAZonaDeCobertura() {
+		ZonaDeCobertura mockedZona = mock(ZonaDeCobertura.class);
+		Organizacion mockedOrg = mock(Organizacion.class);
+		
+		this.sistema.suscribirOrganizacionAZonaDeCobertura(mockedOrg,mockedZona);
+		
+		verify(mockedZona).agregarListener(mockedOrg);
+	}
+	
+	@Test
+	public void testSistemaWeb_desuscribirOrganizacionAZonaDeCobertura() {
+		ZonaDeCobertura mockedZona = mock(ZonaDeCobertura.class);
+		Organizacion mockedOrg = mock(Organizacion.class);
+		
+		this.sistema.desuscribirOrganizacionAZonaDeCobertura(mockedOrg,mockedZona);
+		
+		verify(mockedZona).removerListener(mockedOrg);
 	}
 }

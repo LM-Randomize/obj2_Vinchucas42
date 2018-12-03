@@ -9,6 +9,7 @@ import main.java.muestra.Muestra;
 import main.java.muestra.TipoMuestra;
 import main.java.organizacion.Organizacion;
 import main.java.organizacion.TipoOrganizacion;
+import main.java.organizacion.ZonaDeCobertura;
 import main.java.usuario.Usuario;
 
 public class SistemaWeb {
@@ -16,11 +17,13 @@ public class SistemaWeb {
 	private List<Muestra> muestras;
 	private List<Usuario> usuarios;
 	private List<Organizacion> organizaciones;
+	private List<ZonaDeCobertura> zonas;
 
 	public SistemaWeb() {
 		this.muestras = new ArrayList<Muestra>();
 		this.usuarios = new ArrayList<Usuario>();
 		this.organizaciones = new ArrayList<Organizacion>();
+		this.zonas = new ArrayList<ZonaDeCobertura>();
 	}
 	
 	/* Setter creado unicamente para testear con mayor facilidad
@@ -28,6 +31,10 @@ public class SistemaWeb {
 	public void setMuestras(List<Muestra> muestras) {
 		this.muestras = muestras;
 	}
+	public void setZonasDeCobertura(List<ZonaDeCobertura> zs) {
+		this.zonas = zs;
+	}
+	
 	
 	public List<Muestra> getMuestras() {
 		return muestras;
@@ -37,6 +44,9 @@ public class SistemaWeb {
 	}
 	public List<Organizacion> getOrganizaciones() {
 		return organizaciones;
+	}
+	public List<ZonaDeCobertura> getZonasDeCobertura() {
+		return zonas;
 	}
 
 	/** 
@@ -50,6 +60,10 @@ public class SistemaWeb {
 	public Muestra registrarMuestra(String foto, Ubicacion ubicacion, Usuario usuario, TipoMuestra tipoMuestra) {
 		Muestra muestra = new Muestra(foto,ubicacion,usuario,tipoMuestra);
 		this.muestras.add(muestra);
+		for (ZonaDeCobertura zona : this.zonas) {
+			zona.subscribirMuestraSiPertenece(muestra);
+		}
+		
 		return muestra;
 	}
 	
@@ -76,6 +90,19 @@ public class SistemaWeb {
 		Organizacion org = new Organizacion(nombre, ubicacion, tipoOrg, cantTrabajadores);
 		this.organizaciones.add(org);
 		return org;
+	}
+
+	/** 
+	 * Retorna y almacena una nueva instancia de ZonaDeCobertura
+	 * @param nombre:String nombre de la zona
+	 * @param epicentro:Ubicacion ubicacion donde se encuentra la zona
+	 * @param radio:Double que representa el radio de cobertura
+	 * @return ZonaDeCobertura zona creada.
+	 * */
+	public ZonaDeCobertura registrarZonaDeCobertura(String nombre, Ubicacion epicentro, Double radio) {
+		ZonaDeCobertura zona = new ZonaDeCobertura(nombre,epicentro,radio);
+		this.zonas.add(zona);
+		return zona;
 	}
 	
 	/** 
@@ -106,5 +133,12 @@ public class SistemaWeb {
 	 */
 	public List<Muestra> filtrarMuestras(Filtro filtro) {
 		return filtro.filtrar(this.muestras);
+	}
+
+	public void suscribirOrganizacionAZonaDeCobertura(Organizacion org, ZonaDeCobertura zona) {
+		zona.agregarListener(org);
+	}
+	public void desuscribirOrganizacionAZonaDeCobertura(Organizacion org, ZonaDeCobertura zona) {
+		zona.removerListener(org);
 	}
 }

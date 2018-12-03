@@ -76,6 +76,15 @@ public class ZonaDeCoberturaTest {
 		
 		assertEquals(1, this.zona1.getMuestras().size());
 	}
+
+	@Test
+	public void ZonaDeCoberturaTest_subscribirMuestraSiPertenece_SuscripcionAMuestra() {
+		Muestra mockedMuestra = mock(Muestra.class);
+		when(mockedMuestra.getUbicacion()).thenReturn(this.mockedUbicacion1);
+		this.zona1.subscribirMuestraSiPertenece(mockedMuestra);
+		
+		verify(mockedMuestra).agregarListener(this.zona1);
+	}
 	
 	@Test
 	public void ZonaDeCoberturaTest_notificaciones() {

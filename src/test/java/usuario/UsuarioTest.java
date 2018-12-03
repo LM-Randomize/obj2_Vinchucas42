@@ -42,8 +42,23 @@ public class UsuarioTest {
 		assertEquals(1, this.usuario1.verificacionesDelMes());
 	}
 	@Test
-	public void testUsuario_getNivel() {
+	public void testUsuario_getNivel_BASICO() {
 		assertEquals(NivelUsuario.BASICO, this.usuario1.getNivel());
+	}
+	@Test
+	public void testUsuario_getNivel_EXPERTO() {
+		for (int i=0; i<30; i++) {
+			
+			Muestra mockedMuestra = mock(Muestra.class);
+			when(mockedMuestra.getFechaCaptura()).thenReturn(new Date());
+			Verificacion mockedVerificacion = mock(Verificacion.class);
+			when(mockedVerificacion.getFecha()).thenReturn(new Date());
+			
+			this.usuario1.agregarVerificacion(mockedVerificacion);
+			this.usuario1.agregarMuestra(mockedMuestra);
+			
+		}
+		assertEquals(NivelUsuario.EXPERTO, this.usuario1.getNivel());
 	}
 	@Test
 	public void testUsuario_agregarVerificacion() {
